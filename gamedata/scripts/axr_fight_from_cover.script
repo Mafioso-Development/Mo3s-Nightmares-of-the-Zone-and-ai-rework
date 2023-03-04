@@ -145,7 +145,7 @@ function action_fight_from_cover:try_go_backward(npc)
 	--utils_data.debug_write(strformat("action_fight_from_cover:try_go_backward"))
 	local dir = vector_rotate_y(vec_set(npc:direction()),math_random(160,200))
 	local vid
-	local radius = 8
+	local radius = 10
 	local base_point = npc:level_vertex_id()
 	while (radius > 0) do
 		vid = level.vertex_in_direction(base_point,dir,radius)
@@ -166,7 +166,7 @@ function action_fight_from_cover:try_to_strafe(npc)
 	local base_point = npc:level_vertex_id()
 	
 	for i=1,2 do
-		radius = 4
+		radius = 2
 		while (radius > 1) do
 			vid = level.vertex_in_direction(base_point,dir[i],radius)
 			if (vid and vid < 4294967295 and npc:accessible(vid) and vid ~= npc:level_vertex_id()) then 
